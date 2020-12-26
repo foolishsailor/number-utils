@@ -76,6 +76,6 @@ end
 
 return {
 	NumAbbr = NumAbbr,
-	FormatNum = FormatNum,
-	AbbreviateBytes = AbbreviateBytes,
+	formatNum = formatNum,
+	abbreviateBytes = abbreviateBytes,
 }
