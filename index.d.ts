@@ -36,4 +36,4 @@ export const formatNum: (value: number) => string;
  * @param value The number to be abbreviated
  * @param decimalPlace The number of digits in decimal part of the outputed number
  */
-export const abbreviateBytes: (value: number, decimalPlace: number) => string;
+export const abbreviateBytes: (value: number, decimalPlace?: number) => string;
