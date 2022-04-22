@@ -25,9 +25,10 @@ function methods:abbreviate(value)
 	end
 
 	local integralPart = tostring(value):match("%d+")
-	local index = math.min(math.floor(#integralPart / 3), #self.suffix)
+	local index = math.min(math.floor(#integralPart / 3.25), #self.suffix)
 	local suffixValue = 10 ^ (index * 3)
-	return string.format('%.'..self.decimalPlace..'f'.. " " .. self.suffix[index], value / suffixValue)
+	print(suffixValue)
+	return string.format('%.'..self.decimalPlace..'f' .. self.suffix[index], value / suffixValue)
 end
 
 function methods:deabbreviate(value)
@@ -67,11 +68,11 @@ end
 local BYTE_SUFFIX = {"Bytes", "KB", "MB", "GB", "TB", "PB", "EB"}
 function abbreviateBytes(bytes, decimalPlace)
 	validateInput(bytes)
-    if bytes == 0 then return '0 Bytes' end
-    decimalPlace = decimalPlace or DEFAULT_DECIMAL_PLACE
-    local k = 1024;
-    local i = math.floor(math.log(bytes) / math.log(k));
-    return string.format("%."..decimalPlace.."f" .. " " .. BYTE_SUFFIX[i + 1], (bytes / math.pow(k, i)))
+	if bytes == 0 then return '0 Bytes' end
+	decimalPlace = decimalPlace or DEFAULT_DECIMAL_PLACE
+	local k = 1024;
+	local i = math.floor(math.log(bytes) / math.log(k));
+	return string.format("%."..decimalPlace.."f" .. BYTE_SUFFIX[i + 1], (bytes / math.pow(k, i)))
 end
 
 return {
