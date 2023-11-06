@@ -1,4 +1,4 @@
-export class Number {
+interface NumberConstructor {
   /**
    * Converts the inputed number to a abbreviated string
    * @param value The number to be abbreviated
@@ -11,3 +11,7 @@ export class Number {
    */
   toFormattedString: (value: number) => string;
 }
+
+declare const Number: NumberConstructor;
+
+export = Number;
