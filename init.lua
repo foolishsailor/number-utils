@@ -6,11 +6,16 @@ function validateInput(value)
 	end
 end
 
-function Number.toString(num: number, decimals: number)
+function Number.toString(num, decimals)
 	validateInput(num)
 
-	local formatString = "%." .. tostring(decimals) .. "f"
-	return string.format(formatString, num)
+	if decimals == nil then
+		return tostring(num)
+	else
+		local formatString = "%." .. tostring(decimals) .. "f"
+
+		return string.format(formatString, num)
+	end
 end
 
 function Number.toFormattedString(num, decimals)
