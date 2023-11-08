@@ -6,7 +6,7 @@ function validateInput(value)
 	end
 end
 
-function Number.toString(num, decimals)
+function Number:toString(num, decimals)
 	validateInput(num)
 
 	if decimals == nil then
@@ -18,7 +18,7 @@ function Number.toString(num, decimals)
 	end
 end
 
-function Number.toFormattedString(num, decimals)
+function Number:toFormattedString(num, decimals)
 	local numberFormat = "%." .. tostring(decimals) .. "f"
 	local formattedNumber = string.format(numberFormat, num)
 
